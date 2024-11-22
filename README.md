@@ -1,2 +1,2 @@
-# ORIEE_4580_Final_Project
+# ORIE 4580 Final Project
 Project: Gender Bias in Corporate Settings
