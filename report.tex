@@ -1,37 +1,110 @@
 \documentclass[12pt]{article}
+
+%-----------------------------------------------------------
+% PACKAGE INCLUSIONS
+%-----------------------------------------------------------
 \usepackage[margin=1in]{geometry}
-\usepackage{setspace}
 \usepackage{graphicx}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\usepackage{amsmath,amssymb}
+\usepackage{setspace}
 \usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{titling}   % For controlling title spacing
+\usepackage{booktabs}  % For professional-looking tables
+\usepackage{xcolor}    % For color customizations
+\usepackage{tocloft}   % For TOC formatting
 
-% Formatting
-\setlength{\parindent}{0em}
-\setlength{\parskip}{1em}
-\setstretch{1.5} % Set line spacing to 1.5x
-\doublespacing
+%-----------------------------------------------------------
+% FANCY HEADER/FOOTER SETTINGS
+%-----------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}  % Clear default header/footer
+\lhead{\small ORIE 4580 Report: Gender Bias in Corporate Settings}
+\rhead{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
 
-\title{\textbf{ORIE 4580 Report: Gender Bias in Corporate Settings}}
-\author{...}
-\date{\today}
+%-----------------------------------------------------------
+% TITLE SETTINGS
+%-----------------------------------------------------------
+\setlength{\droptitle}{-5em} % move title up
+\pretitle{\vspace*{-2em}\centering\huge\bfseries}
+\posttitle{\par\vspace{0.5em}\noindent\rule{\textwidth}{0.4pt}\vspace{1em}}
+\preauthor{\centering\large}
+\postauthor{\par\vspace{1em}\noindent\rule{\textwidth}{0.4pt}\vspace{1em}}
+
+%-----------------------------------------------------------
+% SECTION FORMATTING
+%-----------------------------------------------------------
+\titleformat{\section}
+  {\normalfont\Large\bfseries}{\thesection\quad}{0pt}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries}{\thesubsection\quad}{0pt}{}
+
+%-----------------------------------------------------------
+% TABLE OF CONTENTS SETTINGS
+% -- Make it more compact and keep it on the same page
+%-----------------------------------------------------------
+\renewcommand{\cftaftertoctitle}{\par\vskip-1em}
+\setlength{\cftbeforesecskip}{0.5em}
+\setcounter{tocdepth}{2}  % show sections and subsections
+\renewcommand{\contentsname}{Table of Contents}
+
+%-----------------------------------------------------------
+% DOCUMENT BODY
+%-----------------------------------------------------------
+\title{Gender Bias in Corporate Settings \\
+\large ORIE 4580/5580/5581, Fall 2024}
+\author{\large Oluwasola Ogundare}       % Smaller author font
+\date{\small December 19th, 2024} 
+
+% Table of Contents on the first page, more compact:
+\renewcommand{\contentsname}{Table of Contents}
+\setcounter{tocdepth}{2}      % Show sections & subsections
+\renewcommand{\cftbeforesecskip}{20pt}  % Space between TOC entries
 
 \begin{document}
-
 \maketitle
+
+\vspace{-1em} % tighten gap after date
+
+% Table of Contents on the first page, custom spacing:
+{
+\small % make TOC slightly smaller if desired
 \tableofcontents
-\newpage
+\vspace{\fill} % push content to bottom, so TOC expands
+\clearpage
+}
 
-\section*{Executive Summary}
-\addcontentsline{toc}{section}{Executive Summary}
+\clearpage
 
-This section provides a high-level overview of the project, highlighting the theme, questions posed, simulations conducted, and key findings. 
-Figures and summaries may be included here for brevity.
+\section{Overview}
+The aim of the project is to use simulation modeling to study gender disparities (and potentially other identity-group disparities) in the corporate world, and to perform counterfactual studies to understand the impact of potential interventions.
 
-\newpage
+You will build and study simple models of how small local biases can lead to large global imbalances in corporations. This is an important idea in many famous simulation models; in particular, it is closely related to the famous (Nobel-prize-winning) \textit{Schelling model} of segregation in economics. In the process, you will also grapple with issues in simulating and reporting outcomes for a steady-state model, as well as comparing different systems.
+
+\textbf{What the project involves}
+\begin{itemize}
+    \item You will create \textit{highly simplified} models of how employees’ careers advance in a workplace, and of how several potential sources of bias affect that advancement.
+    \item You will formulate a number of questions about bias in the workplace, and you will attempt to answer them using your models.
+    \item You will write a report that both summarizes your findings (in a way high-level decision-makers could understand) and explains the technical details behind your simulations (in a way your 4580/5580 classmates could use to replicate your results).
+\end{itemize}
+
+Throughout, your goal is not necessarily to accurately simulate what happens in any one specific workplace. Rather, your goal is to use a simplified model to get generalizable insight that might apply at some level to many workplaces, even if it is too simple to fully capture the details of any one specific workplace. Another perspective is that you should view the answers you find not as the ground truth, but as well-justified guidance for potential real-world studies.
+
+\subsection{Deadlines and Deliverables}
+Your deliverable is in two parts: a basic simulation model (Homework 7), and the project report.
+
+\begin{itemize}
+    \item \textbf{Basic simulation model due:} Monday, December 2. \\
+    (The recommended due date is Tuesday, November 26, but you may work over the Thanksgiving break if you wish.)
+    \item \textbf{Final report due:} Thursday, December 19 at 11:59pm on Gradescope. \\
+    (This is a \textit{hard deadline} — the recommended due date is Thursday, December 12.)
+\end{itemize}
+
+\vspace{2em}
+
 \section{Main Body}
-\addcontentsline{toc}{section}{Main Body}
-
 \subsection{Modeling Approach}
 Discuss the assumptions, parameters, and overall design of the simulation model in a way that is accessible to non-specialists.
 
@@ -44,18 +117,17 @@ Present simulation results with clear figures, charts, and explanations. Perform
 \subsection{Conclusions}
 Summarize the key findings and their implications. Highlight potential future directions for research and practical applications.
 
-\newpage
 \appendix
 \section{Technical Appendices}
-\addcontentsline{toc}{section}{Technical Appendices}
-
 \subsection{Implementation Details}
 Provide in-depth descriptions of algorithms, data structures, and computational methods used in the simulations.
 
 \subsection{Additional Figures and Results}
 Include supplementary plots, sensitivity analysis results, and extended data visualizations to support the main report.
 
-\newpage
+\vspace{1em}
+
 \section{References}
+% Add references here
 
 \end{document}
